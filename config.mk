@@ -9,7 +9,7 @@ PROG_NAME = determinant
 
 # includes and libs
 INCS =
-LIBS = 
+LIBS = -lm
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\"
