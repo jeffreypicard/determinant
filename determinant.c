@@ -25,6 +25,7 @@ matrix_minor( double **m, unsigned int n, unsigned int skip_row,
   for ( unsigned int row = 0; row < n; row++ ) {
     if ( row == skip_row )
       continue;
+      j = 0;
     for ( unsigned int col = 0; col < n; col++ ) {
       if ( col == skip_col )
         continue;
@@ -46,7 +47,7 @@ do_determinant( double **m, unsigned int n, unsigned int row )
   double det = 0;
   for ( unsigned int col = 0; col < n; col++ ) {
     double **minor = matrix_minor( m, n, row, col );
-    det += pow( -1, row + col ) * do_determinant( minor, n-1, row );
+    det += pow( -1, row + col ) * m[row][col] * do_determinant( minor, n-1, row );
     free( minor );
   }
   return det;
